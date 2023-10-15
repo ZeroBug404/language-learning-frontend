@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 // import Button from './Button';
 import { AlignRightOutlined, CloseOutlined } from "@ant-design/icons";
 import Image from "next/image";
-import logo from "../../app/assets/logo.png"
+import logo from "../../app/assets/logo.png";
 
 export default function Navbar() {
   let Links = [
@@ -16,19 +16,17 @@ export default function Navbar() {
   ];
   let [open, setOpen] = useState(false);
   return (
-    <div className="w-full">
-      <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7" style={{backgroundColor: "#41246D"}}>
+    <div className="w-full fixed top-0">
+      <div
+        className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7"
+        style={{ backgroundColor: "#41246D" }}
+      >
         <div
           className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
         text-gray-800"
         >
           <span className="text-3xl text-indigo-600 mr-1 pt-2"></span>
-          <Image
-            src={logo}
-            width={200}
-            height={100}
-            alt="logo"
-          />
+          <Image src={logo} width={200} height={100} alt="logo" />
         </div>
 
         <div
