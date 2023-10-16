@@ -2,6 +2,7 @@
 
 import BannerCarousel from "../ui/BannerCarousel";
 import Navbar from "../ui/Navbar";
+import Services from "./Services";
 import Starting from "./Starting";
 
 const Home = () => {
@@ -20,6 +21,9 @@ const Home = () => {
       </div>
       <div className="bg-gray-100">
         <Starting />
+      </div>
+      <div style={{ backgroundColor: "#41246D" }}>
+        <Services />
       </div>
     </div>
   );
