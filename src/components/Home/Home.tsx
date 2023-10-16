@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Services from "./Services";
 import Starting from "./Starting";
+import Blog from "./Blog";
 
 const Home = () => {
   return (
@@ -25,6 +26,9 @@ const Home = () => {
       </div>
       <div style={{ backgroundColor: "#41246D" }}>
         <Services />
+      </div>
+      <div style={{  }}>
+        <Blog />
       </div>
       <Footer />
     </div>
