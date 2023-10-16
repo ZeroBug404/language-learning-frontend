@@ -1,7 +1,8 @@
 "use client";
 
 import BannerCarousel from "../ui/BannerCarousel";
-import Navbar from "../ui/Navbar";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 import Services from "./Services";
 import Starting from "./Starting";
 
@@ -25,6 +26,7 @@ const Home = () => {
       <div style={{ backgroundColor: "#41246D" }}>
         <Services />
       </div>
+      <Footer />
     </div>
   );
 };
