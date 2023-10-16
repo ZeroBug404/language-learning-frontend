@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Services from "./Services";
 import Starting from "./Starting";
 import Blog from "./Blog";
+import Testimonial from "./Testimonial";
 
 const Home = () => {
   return (
@@ -26,6 +27,9 @@ const Home = () => {
       </div>
       <div style={{ backgroundColor: "#41246D" }}>
         <Services />
+      </div>
+      <div style={{  }}>
+        <Testimonial />
       </div>
       <div style={{  }}>
         <Blog />
