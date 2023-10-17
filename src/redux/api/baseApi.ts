@@ -4,7 +4,7 @@ export const baseApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     // baseUrl: "http://localhost:5000/api/v1",
-    baseUrl: "https://language-learning-prisma-zerobug404.vercel.app/api/v1",
+    baseUrl: "https://language-learning-prisma.vercel.app/api/v1",
   }),
   // tagTypes: ["user", "reviews"],
   endpoints: () => ({}),

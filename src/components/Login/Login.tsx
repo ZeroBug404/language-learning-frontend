@@ -5,12 +5,12 @@ import { useUserLoginMutation } from "@/redux/api/authApi";
 import { storeUserInfo } from "@/services/auth.service";
 import { Button, Col, Row, message } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
 import loginImage from "../../app/assets/login.png";
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
-import Link from "next/link";
 
 type FormValues = {
   email: string;
@@ -84,7 +84,13 @@ const LoginPage = () => {
                 label="User Password"
               />
             </div>
-            <Button type="primary" htmlType="submit">
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{
+                backgroundColor: "#1677ff",
+              }}
+            >
               Login
             </Button>
           </Form>
