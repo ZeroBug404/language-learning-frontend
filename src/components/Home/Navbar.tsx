@@ -2,8 +2,16 @@
 
 import { useState } from "react";
 // import Button from './Button';
-import { AlignRightOutlined, CloseOutlined } from "@ant-design/icons";
+import { getUserInfo, removeUserInfo } from "@/services/auth.service";
+import {
+  AlignRightOutlined,
+  CloseOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Avatar, Button, Dropdown, MenuProps, Space } from "antd";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import logo from "../../app/assets/logo.png";
 
 export default function Navbar() {
@@ -15,6 +23,41 @@ export default function Navbar() {
     { name: "CONTACT", link: "/" },
   ];
   let [open, setOpen] = useState(false);
+
+  const logOut = () => {
+    removeUserInfo("accessToken");
+    router.push("/login");
+  };
+
+  const { role } = getUserInfo() as any;
+
+  const items: MenuProps["items"] = [
+    {
+      key: "0",
+      label: (
+        <Link href={`/${role}`}>
+          <Button type="text" danger>
+            DashBoard
+          </Button>
+        </Link>
+      ),
+    },
+    {
+      key: "1",
+      label: (
+        <Button onClick={logOut} type="text" danger>
+          LogOut
+        </Button>
+      ),
+    },
+  ];
+
+  const router = useRouter()
+
+  const login = () => {
+    router.push("/login");
+  };
+
   return (
     <div className="w-full fixed top-0">
       <div
@@ -51,9 +94,23 @@ export default function Navbar() {
               </a>
             </li>
           ))}
-          {/* <Button>
-            Get Started
-          </Button> */}
+          <li>
+            {role ? (
+              <Dropdown
+                menu={{ items }}
+              >
+                <a className="mx-3">
+                  <Space wrap size={16}>
+                    <Avatar size="large" icon={<UserOutlined />} />
+                  </Space>
+                </a>
+              </Dropdown>
+            ) : (
+              <Button onClick={login} type="text" danger>
+                Login
+              </Button>
+            )}
+          </li>
         </ul>
       </div>
     </div>
