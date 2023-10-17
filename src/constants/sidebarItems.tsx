@@ -39,25 +39,32 @@ export const sidebarItems = (role: string) => {
   const adminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
     ...commonAdminSidebarItems,
-    // {
-    //   label: "Manage academic",
-    //   key: "manage-academic",
-    //   icon: <TableOutlined />,
-    //   children: [
-    //     {
-    //       label: <Link href={`/${role}/academic/faculty`}>Faculties</Link>,
-    //       key: `/${role}/academic/faculty`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/academic/department`}>Departments</Link>,
-    //       key: `/${role}/academic/department`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/academic/semester`}>Semesters</Link>,
-    //       key: `/${role}/academic/semester`,
-    //     },
-    //   ],
-    // },
+    {
+      label: "Manage Courses",
+      key: "manage-courses",
+      icon: <TableOutlined />,
+      children: [
+        {
+          label: <Link href={`/${role}/category`}>Categories</Link>,
+          key: `/${role}/category`,
+        },
+        {
+          label: <Link href={`/${role}/courses`}>Courses</Link>,
+          key: `/${role}/courses`,
+        },
+      ],
+    },
+    {
+      label: "Manage Contents",
+      key: "manage-contents",
+      icon: <TableOutlined />,
+      children: [
+        {
+          label: <Link href={`/${role}/content/blog`}>Blogs</Link>,
+          key: `/${role}/blog`,
+        },
+      ],
+    },
     // {
     //   label: "Management",
     //   key: "management",
