@@ -51,7 +51,7 @@ const CreateCategory = () => {
           Create Category
         </h1>
         <div>
-          <Form submitHandler={onSubmit} resolver={yupResolver(studentSchema)}>
+          <Form submitHandler={onSubmit} >
             <div>
               <FormInput name="title" type="text" size="large" label="Title" />
             </div>

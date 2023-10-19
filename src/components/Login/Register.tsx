@@ -72,7 +72,7 @@ const RegisterPage = () => {
         </h1>
         <div>
           
-          <Form submitHandler={onSubmit} resolver={yupResolver(studentSchema)}>
+          <Form submitHandler={onSubmit} >
             <div>
               <FormInput
                 name="name"

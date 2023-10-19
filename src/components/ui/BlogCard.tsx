@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+//@ts-ignore
 const BlogCard = ({ image, date, CardTitle, CardDescription }) => {
     return (
       <>

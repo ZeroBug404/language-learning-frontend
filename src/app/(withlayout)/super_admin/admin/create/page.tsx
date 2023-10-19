@@ -36,6 +36,7 @@ const CreateAdmin = () => {
 
       const res = await userSignup(registerData);
 
+      //@ts-ignore
       if (res?.success) {
         message.success("User logged in successfully!");
       }
@@ -61,7 +62,7 @@ const CreateAdmin = () => {
           Create Admin
         </h1>
         <div>
-          <Form submitHandler={onSubmit} resolver={yupResolver(studentSchema)}>
+          <Form submitHandler={onSubmit} >
             <div>
               <FormInput
                 name="name"
