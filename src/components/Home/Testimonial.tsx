@@ -1,8 +1,10 @@
+"use client"
+
 import TestimonialCarousel from "../ui/TestimonialCarousel";
 
 const Testimonial = () => {
   return (
-    <div style={{ minHeight: "90vh", padding: "5rem 2rem" }}>
+    <div style={{ height: "100vh", padding: "5rem 2rem", marginTop: "5rem" }}>
       <div>
         <h3 className="text-center text-pink-500 text-lg font-semibold">
           Testimonials

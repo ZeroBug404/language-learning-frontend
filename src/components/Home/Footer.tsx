@@ -1,11 +1,14 @@
+import {
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaLinkedin,
+} from "react-icons/fa";
 import ItemsContainer from "../Footer/ItemsContainer";
-import { Icons } from "../Footer/Menus";
-import SocialIcons from "../Footer/SocialIcons";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#2f115c] py-7">
+    <footer className="bg-[#2f115c] text-white">
+      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#2f115c] py-7 w-10/12 m-auto">
         <h1
           className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold
          md:w-2/5"
@@ -34,7 +37,30 @@ const Footer = () => {
       >
         <span>© 2020 Appy. All rights reserved.</span>
         <span>Terms · Privacy Policy</span>
-        <SocialIcons Icons={Icons} />
+
+        <div>
+          <span
+            className="p-2 cursor-pointer inline-flex items-center
+          rounded-full bg-gray-700 mx-1.5 text-xl hover:text-gray-100 hover:bg-teal-500
+          duration-300 "
+          >
+            <FaLinkedin />
+          </span>
+          <span
+            className="p-2 cursor-pointer inline-flex items-center
+          rounded-full bg-gray-700 mx-1.5 text-xl hover:text-gray-100 hover:bg-teal-500
+          duration-300 "
+          >
+            <FaFacebookSquare />
+          </span>
+          <span
+            className="p-2 cursor-pointer inline-flex items-center
+          rounded-full bg-gray-700 mx-1.5 text-xl hover:text-gray-100 hover:bg-teal-500
+          duration-300 "
+          >
+            <FaInstagramSquare />
+          </span>
+        </div>
       </div>
     </footer>
   );

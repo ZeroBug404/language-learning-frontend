@@ -10,7 +10,7 @@ import "./styles.css";
 
 // import required modules
 import Image from "next/image";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import { Rate } from "antd";
 import profile from "../../app/assets/profile.jpg";
@@ -25,11 +25,11 @@ const TestimonialCarousel = () => {
         clickable: true,
       }}
       autoplay={{
-        delay: 2500,
+        delay: 3500,
         disableOnInteraction: false,
       }}
-      navigation={true}
-      modules={[Pagination, Navigation]}
+      // navigation={true}
+      modules={[Autoplay]}
       className="mySwiper"
     >
       <SwiperSlide className="flex flex-col justify-center items-center">

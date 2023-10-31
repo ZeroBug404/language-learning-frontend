@@ -23,7 +23,7 @@ const ServicesCarousel = () => {
         slidesPerView={1}
         spaceBetween={10}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -48,7 +48,7 @@ const ServicesCarousel = () => {
             spaceBetween: 50,
           },
         }}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide className="">

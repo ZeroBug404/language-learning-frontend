@@ -59,7 +59,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full fixed top-0">
+    <div className="w-full fixed top-0 z-30">
       <div
         className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7"
         style={{ backgroundColor: "#41246D" }}
