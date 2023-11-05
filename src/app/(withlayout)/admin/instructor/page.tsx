@@ -19,6 +19,7 @@ import {
 } from "@/redux/api/userApi";
 import { useDebounced } from "@/redux/hooks";
 import dayjs from "dayjs";
+import { useInstructorsQuery } from "@/redux/api/instructorApi";
 
 const InstructorPage = () => {
   const query: Record<string, any> = {};
@@ -42,15 +43,12 @@ const InstructorPage = () => {
   if (!!debouncedSearchTerm) {
     query["searchTerm"] = debouncedSearchTerm;
   }
-  const { data, isLoading } = useAdminsQuery([]);
 
   const [updateUserData, { isError }] = useUpdateUserMutation();
 
-  const [deleteUser] = useDeleteUserMutation();
+  const {data, isLoading} = useInstructorsQuery([]);
 
-  const instructors = data?.data?.filter(
-    (instructor: any) => instructor.role === "instructor"
-  );
+  const [deleteUser] = useDeleteUserMutation();
 
   // const changeRoleToSuperAdmin = (id: string) => {
   //   const data = {
@@ -213,7 +211,7 @@ const InstructorPage = () => {
       <LLTable
         loading={isLoading}
         columns={columns}
-        dataSource={instructors}
+        dataSource={data?.data}
         pageSize={size}
         // totalPages={meta?.total}
         showSizeChanger={true}

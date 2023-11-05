@@ -195,11 +195,13 @@ const StudentPage = () => {
           }}
         />
         <div>
-          <Link href="/admin/student/create">
+
+          {/* <Link href="/admin/student/create">
             <Button type="primary" style={{ backgroundColor: "#1677ff" }}>
-              Create Admin
+              Create Student
             </Button>
-          </Link>
+          </Link> */}
+
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button
               style={{ margin: "0px 5px" }}
