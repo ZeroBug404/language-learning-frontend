@@ -6,7 +6,7 @@ export const courseApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     addCourse: build.mutation({
       query: (data) => ({
-        url: `${COURSE_URL}`,
+        url: COURSE_URL,
         method: "POST",
         body: data,
       }),
