@@ -19,6 +19,7 @@ import {
 import { useDebounced } from "@/redux/hooks";
 import dayjs from "dayjs";
 import { useInstructorsQuery } from "@/redux/api/instructorApi";
+import { useGetAllCourseQuery } from "@/redux/api/courseApi";
 
 const CoursePage = () => {
   const query: Record<string, any> = {};
@@ -45,7 +46,9 @@ const CoursePage = () => {
 
   const [updateUserData, { isError }] = useUpdateUserMutation();
 
-  const {data, isLoading} = useInstructorsQuery([]);
+  const {data, isLoading} = useGetAllCourseQuery([]);
+
+  console.log(data);
 
   const [deleteUser] = useDeleteUserMutation();
 
@@ -68,16 +71,48 @@ const CoursePage = () => {
 
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
+      title: "Title",
+      dataIndex: "title",
       render: function (data: any) {
         const fullName = `${data} `;
         return <>{fullName}</>;
       },
     },
     {
-      title: "Email",
-      dataIndex: "email",
+      title: "Description",
+      dataIndex: "description",
+      render: function (data: any) {
+        const email = `${data} `;
+        return <>{email}</>;
+      },
+    },
+    {
+      title: "Category",
+      dataIndex: "language",
+      render: function (data: any) {
+        const email = `${data} `;
+        return <>{email}</>;
+      },
+    },
+    {
+      title: "Total Week",
+      dataIndex: "totalWeek",
+      render: function (data: any) {
+        const email = `${data} `;
+        return <>{email}</>;
+      },
+    },
+    {
+      title: "Level",
+      dataIndex: "level",
+      render: function (data: any) {
+        const email = `${data} `;
+        return <>{email}</>;
+      },
+    },
+    {
+      title: "Quizzes",
+      dataIndex: "quizzes",
       render: function (data: any) {
         const email = `${data} `;
         return <>{email}</>;
@@ -90,14 +125,6 @@ const CoursePage = () => {
         return data && dayjs(data).format("MMM D, YYYY hh:mm A");
       },
       sorter: true,
-    },
-    {
-      title: "Contact no.",
-      dataIndex: "contactNo",
-      render: function (data: any) {
-        const contactNo = `${data} `;
-        return <>{contactNo}</>;
-      },
     },
     {
       title: "Action",

@@ -5,8 +5,12 @@ import FormInput from "@/components/Forms/FormInput";
 import FormSelectField from "@/components/Forms/FormSelectField";
 import FormTextArea from "@/components/Forms/FormTextArea";
 import { levelOptions } from "@/constants/global";
+import { useGetAllCategoryQuery } from "@/redux/api/categoryApi";
 import { useAddCourseMutation } from "@/redux/api/courseApi";
+import { useInstructorsQuery } from "@/redux/api/instructorApi";
+import { useDebounced } from "@/redux/hooks";
 import { Button, Col, Row, message } from "antd";
+import { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
 type FormValues = {
@@ -14,30 +18,74 @@ type FormValues = {
   description: String;
   totalWeek: String;
   level: String;
-  quizzes: String;
+  quiz: String;
   learningOutcomes: String;
   certification: String;
-  languageId: String;
-  instructorId: String;
+  language: String;
+  instructor: String;
 };
 
 const CreateCourse = () => {
+  const query: Record<string, any> = {};
+
+  const [page, setPage] = useState<number>(1);
+  const [size, setSize] = useState<number>(10);
+  const [sortBy, setSortBy] = useState<string>("");
+  const [sortOrder, setSortOrder] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  query["limit"] = size;
+  query["page"] = page;
+  query["sortBy"] = sortBy;
+  query["sortOrder"] = sortOrder;
+
+  const debouncedSearchTerm = useDebounced({
+    searchQuery: searchTerm,
+    delay: 600,
+  });
+
+  if (!!debouncedSearchTerm) {
+    query["searchTerm"] = debouncedSearchTerm;
+  }
+
   const [addCourse] = useAddCourseMutation();
 
+  const { data: languageData } = useGetAllCategoryQuery({ ...query });
+  
+  const { data: instructorData } = useInstructorsQuery([]);
+
+  const languageOptions = languageData?.data?.map((item: any) => ({
+    label: item.title,
+    value: item.title,
+  }));
+
+  const instructorOptions = instructorData?.data?.map((item: any) => ({
+    label: item.name,
+    value: item.name,
+  }));
+
   const onCourseSubmit: SubmitHandler<FormValues> = async (data) => {
+    const instructor = instructorData?.data?.filter(
+      (item: any) => item.name === data.instructor
+    );
+
+    const language = languageData?.data?.filter(
+      (item: any) => item.title === data.language
+    );
+
     try {
       const courseData = {
-        title: "Sample Course",
-        description: "This is a sample course description.",
-        totalWeek: "10",
-        level: "Intermediate",
-        quizzes: "10",
-        learningOutcomes: "Upon completion, you will learn...",
-        certification: "Certified",
-        languageId: "e1524fc2-f41e-45c1-b236-2e1663765d8c",
-        instructorId: "720b75c0-d3c2-4762-b9e3-3711b6450a47",
+        title: data.title,
+        description: data.description,
+        totalWeek: data.totalWeek,
+        level: data.level,
+        quizzes: data.quiz,
+        learningOutcomes: data.learningOutcomes,
+        certification: data.certification,
+        languageId: language[0].id,
+        instructorId: instructor[0].id,
       };
-
+      
       const res: any = await addCourse(courseData);
 
       //@ts-ignore
@@ -58,55 +106,6 @@ const CreateCourse = () => {
       >
         Create Course
       </h1>
-      {/* <div>
-          <Form submitHandler={onSubmit} >
-            <div>
-              <FormInput
-                name="name"
-                type="text"
-                size="large"
-                label="User Name"
-              />
-            </div>
-            <div>
-              <FormInput
-                name="email"
-                type="email"
-                size="large"
-                label="User Email"
-              />
-            </div>
-            <div>
-              <FormInput
-                name="contactNo"
-                type="text"
-                size="large"
-                label="Contact No"
-              />
-            </div>
-            <div
-              style={{
-                margin: "15px 0px",
-              }}
-            >
-              <FormInput
-                name="password"
-                type="password"
-                size="large"
-                label="User Password"
-              />
-            </div>
-            <Button
-              type="primary"
-              htmlType="submit"
-              style={{
-                backgroundColor: "#1677ff",
-              }}
-            >
-              Create
-            </Button>
-          </Form>
-        </div> */}
       <Form submitHandler={onCourseSubmit}>
         {/* course information */}
         <div
@@ -194,11 +193,7 @@ const CreateCourse = () => {
           </p>
           <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
             <Col span={8} style={{ margin: "10px 0" }}>
-              <FormInput
-                name="quize"
-                label="Quizzes"
-                size="large"
-              />
+              <FormInput name="quiz" label="Quizzes" size="large" />
             </Col>
 
             <Col span={8} style={{ margin: "10px 0" }}>
@@ -214,6 +209,21 @@ const CreateCourse = () => {
                 name="certification"
                 label="Certification"
                 size="large"
+              />
+            </Col>
+
+            <Col span={12} style={{ margin: "10px 0" }}>
+              <FormSelectField
+                name="language"
+                label="Language Category"
+                options={languageOptions}
+              />
+            </Col>
+            <Col span={12} style={{ margin: "10px 0" }}>
+              <FormSelectField
+                name="instructor"
+                label="Instructor"
+                options={instructorOptions}
               />
             </Col>
 

@@ -3,6 +3,7 @@
 import { useGetSingleUserQuery } from "@/redux/api/userApi";
 import { getUserInfo } from "@/services/auth.service";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProfilePage = () => {
   const { userId } = getUserInfo() as any;
@@ -15,12 +16,12 @@ const ProfilePage = () => {
         <div className="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 bg-white shadow-md">
           <div className="flex justify-between">
             <span className="text-xl font-semibold block">Profile</span>
-            <a
+            <Link
               href="#"
               className="-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800"
             >
               Edit
-            </a>
+            </Link>
           </div>
 
           <span className="text-gray-600">

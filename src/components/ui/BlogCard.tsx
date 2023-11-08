@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 //@ts-ignore
 const BlogCard = ({ image, date, CardTitle, CardDescription }) => {
@@ -16,12 +17,12 @@ const BlogCard = ({ image, date, CardTitle, CardDescription }) => {
                 </span>
               )}
               <h3>
-                <a
+                <Link
                   href="/#"
                   className="inline-block mb-4 text-xl font-semibold text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl"
                 >
                   {CardTitle}
-                </a>
+                </Link>
               </h3>
               <p className="text-base text-body-color">{CardDescription}</p>
             </div>

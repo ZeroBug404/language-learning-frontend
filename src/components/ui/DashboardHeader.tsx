@@ -1,6 +1,7 @@
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Dropdown, Layout, MenuProps, Row, Space } from "antd";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 const { Header: AntHeader } = Layout;
 
@@ -46,11 +47,11 @@ const DashboardHeader = () => {
           {role}
         </p>
         <Dropdown menu={{ items }}>
-          <a>
+          <Link href={"#"}>
             <Space wrap size={16}>
               <Avatar size="large" icon={<UserOutlined />} />
             </Space>
-          </a>
+          </Link>
         </Dropdown>
       </Row>
     </AntHeader>

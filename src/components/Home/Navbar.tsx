@@ -1,3 +1,20 @@
+// The Hydration error is coming here because of using
+// {role ? (
+//   <li className="m-4">
+//     <Dropdown menu={{ items }}>
+//       <Space wrap size={16}>
+//         <Avatar size="large" icon={<UserOutlined />} />
+//       </Space>
+//     </Dropdown>
+//   </li>
+// ) : (
+//   <li className="m-4">
+//     <Button onClick={login} type="primary" danger>
+//       Login
+//     </Button>
+//   </li>
+// )}
+
 "use client";
 
 import { useState } from "react";
@@ -52,7 +69,7 @@ export default function Navbar() {
     },
   ];
 
-  const router = useRouter()
+  const router = useRouter();
 
   const login = () => {
     router.push("/login");
@@ -86,31 +103,30 @@ export default function Navbar() {
         >
           {Links.map((link) => (
             <li key={link.name} className="md:ml-8 font-semibold md:my-0 my-7 ">
-              <a
+              <Link
                 href={link.link}
                 className="text-white hover:text-gray-400 duration-500"
               >
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
-          <li>
-            {role ? (
-              <Dropdown
-                menu={{ items }}
-              >
-                <a className="mx-3">
-                  <Space wrap size={16}>
-                    <Avatar size="large" icon={<UserOutlined />} />
-                  </Space>
-                </a>
+
+          {role ? (
+            <li className="m-4">
+              <Dropdown menu={{ items }}>
+                <Space wrap size={16}>
+                  <Avatar size="large" icon={<UserOutlined />} />
+                </Space>
               </Dropdown>
-            ) : (
-              <Button onClick={login} type="text" danger>
+            </li>
+          ) : (
+            <li className="m-4">
+              <Button onClick={login} type="primary" danger>
                 Login
               </Button>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
       </div>
     </div>

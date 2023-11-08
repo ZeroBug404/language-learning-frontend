@@ -3,8 +3,6 @@
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import { useAddCategoryMutation } from "@/redux/api/categoryApi";
-import { studentSchema } from "@/schemas/student";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Col, Row, message } from "antd";
 import { SubmitHandler } from "react-hook-form";
 
@@ -15,9 +13,8 @@ type FormValues = {
 const CreateCategory = () => {
   const [addCategory] = useAddCategoryMutation();
 
-  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+  const onCategorySubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-
       const registerData = {
         title: data?.title,
       };
@@ -26,7 +23,7 @@ const CreateCategory = () => {
       console.log(res);
 
       //@ts-ignore
-      if (res?.success) {
+      if (res?.data?.success) {
         message.success("Category created successfully!");
       }
     } catch (err: any) {
@@ -35,39 +32,39 @@ const CreateCategory = () => {
   };
 
   return (
-    <Row
-      justify="center"
-      align="middle"
-      style={{
-        minHeight: "100vh",
-      }}
-    >
-      <Col sm={12} md={8} lg={8}>
-        <h1
+    <>
+      <h1
+        style={{
+          margin: "15px 0px",
+        }}
+      >
+        Create Course
+      </h1>
+      <Form submitHandler={onCategorySubmit}>
+        {/* course information */}
+        <div
           style={{
-            margin: "15px 0px",
+            border: "1px solid #d9d9d9",
+            borderRadius: "5px",
+            padding: "15px",
+            marginBottom: "10px",
           }}
         >
-          Create Category
-        </h1>
-        <div>
-          <Form submitHandler={onSubmit} >
-            <div>
-              <FormInput name="title" type="text" size="large" label="Title" />
-            </div>
-            <Button
-              type="primary"
-              htmlType="submit"
-              style={{
-                backgroundColor: "#1677ff",
-              }}
-            >
-              Create
-            </Button>
-          </Form>
+          <p style={{ fontSize: "18px", fontWeight: "500", margin: "5px 0px" }}>
+            Course information
+          </p>
+          <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
+            <Col span={8} style={{ margin: "10px 0" }}>
+              <FormInput name="title" size="large" label="Title" />
+            </Col>
+          </Row>
         </div>
-      </Col>
-    </Row>
+
+        <Button size="large" htmlType="submit">
+          submit
+        </Button>
+      </Form>
+    </>
   );
 };
 
