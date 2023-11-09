@@ -21,6 +21,7 @@ type FormValues = {
   quiz: String;
   learningOutcomes: String;
   certification: String;
+  price: String;
   language: String;
   instructor: String;
 };
@@ -51,7 +52,7 @@ const CreateCourse = () => {
   const [addCourse] = useAddCourseMutation();
 
   const { data: languageData } = useGetAllCategoryQuery({ ...query });
-  
+
   const { data: instructorData } = useInstructorsQuery([]);
 
   const languageOptions = languageData?.data?.map((item: any) => ({
@@ -82,10 +83,11 @@ const CreateCourse = () => {
         quizzes: data.quiz,
         learningOutcomes: data.learningOutcomes,
         certification: data.certification,
+        price: data.price,
         languageId: language[0].id,
         instructorId: instructor[0].id,
       };
-      
+
       const res: any = await addCourse(courseData);
 
       //@ts-ignore
@@ -120,11 +122,11 @@ const CreateCourse = () => {
             Course information
           </p>
           <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
-            <Col span={8} style={{ margin: "10px 0" }}>
+            <Col span={6} style={{ margin: "10px 0" }}>
               <FormInput name="title" size="large" label="Title" />
             </Col>
 
-            <Col span={8} style={{ margin: "10px 0" }}>
+            <Col span={6} style={{ margin: "10px 0" }}>
               <FormSelectField
                 name="level"
                 label="Level"
@@ -132,7 +134,7 @@ const CreateCourse = () => {
               />
             </Col>
 
-            <Col span={8} style={{ margin: "10px 0" }}>
+            <Col span={6} style={{ margin: "10px 0" }}>
               <FormInput
                 name="totalWeek"
                 type="text"
@@ -140,43 +142,13 @@ const CreateCourse = () => {
                 label="Total Week"
               />
             </Col>
+            <Col span={6} style={{ margin: "10px 0" }}>
+              <FormInput name="price" type="text" size="large" label="Price" />
+            </Col>
             <Col span={24} style={{ margin: "10px 0" }}>
               <FormTextArea name="description" label="Description" rows={4} />
             </Col>
 
-            {/* <Col span={6} style={{ margin: "10px 0" }}>
-              <FormInput
-                type="password"
-                name="password"
-                label="Password"
-                size="large"
-              />
-            </Col> */}
-
-            {/* <Col span={8} style={{ margin: "10px 0" }}>
-              <FormSelectField
-                name="faculty.gender"
-                label="Gender"
-                options={genderOptions}
-              />
-            </Col> */}
-
-            {/* <Col span={8} style={{ margin: "10px 0" }}>
-              <ACFacultyField
-                name="faculty.academicFaculty"
-                label="Academic Faculty"
-              />
-            </Col>
-            <Col span={8} style={{ margin: "10px 0" }}>
-              <ACDepartmentField
-                name="faculty.academicDepartment"
-                label="Academic Department"
-              />
-            </Col> */}
-
-            {/* <Col span={8} style={{ margin: "10px 0" }}>
-              <UploadImage name="file" />
-            </Col> */}
           </Row>
         </div>
         {/* other information  */}
@@ -227,36 +199,6 @@ const CreateCourse = () => {
               />
             </Col>
 
-            {/* <Col span={8} style={{ margin: "10px 0" }}>
-              <FormDatePicker
-                name="faculty.dateOfBirth"
-                label="Date of birth"
-              />
-            </Col> */}
-
-            {/* <Col span={8} style={{ margin: "10px 0" }}>
-              <FormSelectField
-                name="faculty.bloodGroup"
-                label="Blood group"
-                options={bloodGroupOptions}
-              />
-            </Col> */}
-
-            {/* <Col span={12} style={{ margin: "10px 0" }}>
-              <FormTextArea
-                name="faculty.presentAddress"
-                label="Present address"
-                rows={4}
-              />
-            </Col> */}
-
-            {/* <Col span={12} style={{ margin: "10px 0" }}>
-              <FormTextArea
-                name="faculty.permanentAddress"
-                label="Permanent address"
-                rows={4}
-              />
-            </Col> */}
           </Row>
         </div>
 
