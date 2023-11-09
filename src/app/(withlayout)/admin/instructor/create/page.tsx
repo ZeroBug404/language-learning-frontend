@@ -113,7 +113,7 @@ const CreateInstructor = () => {
           </p>
           <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
             <Col span={6} style={{ margin: "10px 0" }}>
-              <FormInput name="name" size="large" label="User Name" />
+              <FormInput name="name" size="large" label="Full Name" />
             </Col>
 
             <Col span={6} style={{ margin: "10px 0" }}>

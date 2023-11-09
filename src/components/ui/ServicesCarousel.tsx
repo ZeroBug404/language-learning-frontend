@@ -19,7 +19,8 @@ import { Divider } from "antd";
 
 const ServicesCarousel = () => {
   const { data: courseData } = useGetAllCourseQuery([]);
-  console.log(courseData?.data);
+  
+  
 
   return (
     <>
@@ -60,7 +61,9 @@ const ServicesCarousel = () => {
             <div className="relative">
               <Image src={slide_1} width={500} alt="slide 1" />
               <div className="absolute top-3 right-3 bg-pink-600 px-2 py-5 rounded-full">
-                <h2 className="text-white font-bold text-2xl">$240</h2>
+                <h2 className="text-white font-bold text-2xl">
+                  ${course.price}
+                </h2>
               </div>
             </div>
             <div className="bg-gray-100">
