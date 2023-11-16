@@ -3,7 +3,7 @@ import ServicesCarousel from "../ui/ServicesCarousel";
 
 const Services = () => {
   return (
-    <div style={{ minHeight: "90vh", padding: "5rem 1rem" }}>
+    <div id="service" style={{ minHeight: "90vh", padding: "5rem 1rem" }}>
       <div>
         <h3 className="text-center text-yellow-600 text-lg font-semibold">
           Find a Course

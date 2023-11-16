@@ -3,7 +3,7 @@ import BlogCard from "../ui/BlogCard";
 const Blog = () => {
   return (
     <>
-      <section className="pt-20 pb-10 lg:pt-[50px] lg:pb-20 flex justify-center">
+      <section id="blog" className="pt-20 pb-10 lg:pt-[50px] lg:pb-20 flex justify-center">
         <div className="container">
           <div className="flex flex-wrap -mx-4 justify-center items-center">
             <div className="w-full px-4">

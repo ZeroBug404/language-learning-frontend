@@ -16,11 +16,20 @@ import slide_1 from "../../app/assets/banner1.jpg";
 import { useGetAllCourseQuery } from "@/redux/api/courseApi";
 import { ClockCircleOutlined, CommentOutlined } from "@ant-design/icons";
 import { Divider } from "antd";
+import { useAppSelector } from "@/redux/hooks";
 
 const ServicesCarousel = () => {
   const { data: courseData } = useGetAllCourseQuery([]);
+
+  // console.log(courseData);
+
+  // const category = useAppSelector((state) => console.log(state.course));
+
+  // console.log(category);
   
-  
+  // const courseBasedOnCategory = courseData?.data?.filter((item: any) => item.language.title === category);
+
+  // console.log(courseBasedOnCategory);
 
   return (
     <>

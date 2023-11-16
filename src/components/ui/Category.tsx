@@ -28,7 +28,7 @@ const Category: React.FC = () => {
         <div
           key={index}
           className={`text-white hover:text-indigo-900 px-8 py-4 hover:bg-white font-semibold cursor-pointer ${
-            selectedLanguage === language ? "bg-white text-indigo-900" : ""
+            selectedLanguage === language ? "bg-white text-gray-900" : ""
           }`}
           style={{
             border: "2px solid #301a52",

@@ -34,10 +34,10 @@ import logo from "../../app/assets/logo.png";
 export default function Navbar() {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "SERVICE", link: "/" },
-    { name: "ABOUT", link: "/" },
-    { name: "BLOG'S", link: "/" },
-    { name: "CONTACT", link: "/" },
+    { name: "SERVICE", link: "#service" },
+    // { name: "ABOUT", link: "#about" },
+    { name: "BLOG'S", link: "#blog" },
+    // { name: "CONTACT", link: "#contact" },
   ];
   let [open, setOpen] = useState(false);
 

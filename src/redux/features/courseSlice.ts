@@ -7,7 +7,7 @@ interface CourseState {
 
 // Define the initial state using that type
 const initialState: CourseState = {
-  category: "",
+  category: "English",
 };
 
 export const courseSlice = createSlice({
@@ -15,8 +15,8 @@ export const courseSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setCategory: (state) => {
-      state.category = "React";
+    setCategory: (state, action) => {
+      state.category = action.payload;
     },
   },
 });
