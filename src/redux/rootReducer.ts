@@ -1,5 +1,7 @@
 import { baseApi } from "./api/baseApi";
+import courseReducer from "./features/courseSlice";
 
 export const reducer = {
-    [baseApi.reducerPath]: baseApi.reducer,
-}
+  category: courseReducer,
+  [baseApi.reducerPath]: baseApi.reducer,
+};

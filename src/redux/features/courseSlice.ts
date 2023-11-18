@@ -7,7 +7,7 @@ interface CourseState {
 
 // Define the initial state using that type
 const initialState: CourseState = {
-  category: "English",
+  category: "",
 };
 
 export const courseSlice = createSlice({
