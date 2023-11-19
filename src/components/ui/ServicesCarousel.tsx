@@ -20,6 +20,7 @@ import { RootState } from "@/redux/store";
 import { ClockCircleOutlined, CommentOutlined } from "@ant-design/icons";
 import { Divider } from "antd";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const ServicesCarousel = () => {
   const { data: courseData } = useGetAllCourseQuery([]);
@@ -79,9 +80,18 @@ const ServicesCarousel = () => {
                 </div>
                 <div className="bg-gray-100">
                   <div className="p-6 mt-8">
-                    <h4 className="text-xl font-semibold mb-2 text-gray-800">
-                      {course.title}
-                    </h4>
+                    <Link
+                      href="/detail/[id]"
+                      as={`/detail/${course.id}`}
+                      passHref
+                    >
+                      <a>
+                        <h4 className="text-xl font-semibold mb-2 text-gray-800 cursor-pointer">
+                          {course.title}
+                        </h4>
+                      </a>
+                    </Link>
+
                     <p className="leading-0">{course.learningOutcomes}</p>
                   </div>
                   <Divider
@@ -137,9 +147,15 @@ const ServicesCarousel = () => {
                 </div>
                 <div className="bg-gray-100">
                   <div className="p-6 mt-8">
-                    <h4 className="text-xl font-semibold mb-2 text-gray-800">
-                      {course.title}
-                    </h4>
+                    <Link
+                      href="/detail/[id]"
+                      as={`/detail/${course.id}`}
+                    >
+                        <h4 className="text-xl font-semibold mb-2 text-gray-800 cursor-pointer">
+                          {course.title}
+                        </h4>
+                    </Link>
+
                     <p className="leading-0">{course.learningOutcomes}</p>
                   </div>
                   <Divider

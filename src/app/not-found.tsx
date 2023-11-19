@@ -1,4 +1,6 @@
 import { Row } from "antd";
+import Image from "next/image";
+import error from "../app/assets/404.jpg";
 
 const NotFoundPage = () => {
   return (
@@ -9,7 +11,7 @@ const NotFoundPage = () => {
         height: "100vh",
       }}
     >
-      <h1>404!!! Page Not Found!</h1>
+      <Image src={error} width={700} height={700} alt="404 Not Found" />
     </Row>
   );
 };

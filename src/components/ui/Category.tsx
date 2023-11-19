@@ -27,7 +27,7 @@ const Category: React.FC = () => {
       {languageData.map((language, index) => (
         <div
           key={index}
-          className={`text-white hover:text-indigo-900 px-8 py-4 hover:bg-white font-semibold cursor-pointer ${
+          className={`text-gray-400 hover:text-indigo-900 px-8 py-4 hover:bg-white font-semibold cursor-pointer ${
             selectedLanguage === language ? "bg-white text-gray-900" : ""
           }`}
           style={{
