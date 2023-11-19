@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
-import loginImage from "../../app/assets/login.png";
+import loginImage from "../../assets/login.png";
 import Form from "../Forms/Form";
 import FormInput from "../Forms/FormInput";
 

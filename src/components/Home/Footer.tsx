@@ -23,7 +23,7 @@ const Footer = () => {
            sm:w-72 w-full sm:mr-5 mr-1 lg:mb-0 mb-4 py-2.5 rounded px-2 focus:outline-none"
           />
           <button
-            className="bg-teal-400 hover:bg-teal-500 duration-300 px-5 py-2.5 font-[Poppins]
+            className="bg-[#f24080] hover:bg-[#f24085] duration-300 px-5 py-2.5 font-[Poppins]
            rounded-md text-white md:w-auto w-full"
           >
             Subscribe
@@ -41,22 +41,22 @@ const Footer = () => {
         <div>
           <span
             className="p-2 cursor-pointer inline-flex items-center
-          rounded-full bg-gray-700 mx-1.5 text-xl hover:text-gray-100 hover:bg-teal-500
-          duration-300 "
+            rounded-full mx-1.5 text-xl hover:text-gray-100 hover:bg-[#f24080]
+            duration-300 border-2 border-gray-700"
           >
             <FaLinkedin />
           </span>
           <span
             className="p-2 cursor-pointer inline-flex items-center
-          rounded-full bg-gray-700 mx-1.5 text-xl hover:text-gray-100 hover:bg-teal-500
-          duration-300 "
+            rounded-full mx-1.5 text-xl hover:text-gray-100 hover:bg-[#f24080]
+            duration-300 border-2 border-gray-700"
           >
             <FaFacebookSquare />
           </span>
           <span
             className="p-2 cursor-pointer inline-flex items-center
-          rounded-full bg-gray-700 mx-1.5 text-xl hover:text-gray-100 hover:bg-teal-500
-          duration-300 "
+          rounded-full mx-1.5 text-xl hover:text-gray-100 hover:bg-[#f24080]
+          duration-300 border-2 border-gray-700"
           >
             <FaInstagramSquare />
           </span>

@@ -1,6 +1,6 @@
 import { Row } from "antd";
 import Image from "next/image";
-import error from "../app/assets/404.jpg";
+import error from "../assets/404.jpg";
 
 const NotFoundPage = () => {
   return (
