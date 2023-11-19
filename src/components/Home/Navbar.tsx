@@ -29,7 +29,7 @@ import { Avatar, Button, Dropdown, MenuProps, Space } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import logo from "../../app/assets/logo.png";
+import logo from "../../assets/logo.png";
 
 export default function Navbar() {
   let Links = [

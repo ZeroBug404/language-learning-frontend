@@ -13,14 +13,14 @@ import "./ServicesCarousel.module.css";
 import { Autoplay } from "swiper/modules";
 
 import Image from "next/image";
-import slide_1 from "../../app/assets/banner1.jpg";
+import slide_1 from "../../assets/banner1.jpg";
 
 import { useGetAllCourseQuery } from "@/redux/api/courseApi";
 import { RootState } from "@/redux/store";
 import { ClockCircleOutlined, CommentOutlined } from "@ant-design/icons";
 import { Divider } from "antd";
-import { useSelector } from "react-redux";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const ServicesCarousel = () => {
   const { data: courseData } = useGetAllCourseQuery([]);
@@ -81,8 +81,8 @@ const ServicesCarousel = () => {
                 <div className="bg-gray-100">
                   <div className="p-6 mt-8">
                     <Link
-                      href="/detail/[id]"
-                      as={`/detail/${course.id}`}
+                      href="/courseDetail/[id]"
+                      as={`/courseDetail/${course.id}`}
                       passHref
                     >
                       <a>
@@ -148,12 +148,15 @@ const ServicesCarousel = () => {
                 <div className="bg-gray-100">
                   <div className="p-6 mt-8">
                     <Link
-                      href="/detail/[id]"
-                      as={`/detail/${course.id}`}
+                      href={{
+                        pathname: "/courseDetail",
+                        query: { id: course.id },
+                      }}
+                      // as={`/courseDetail/${course.id}`}
                     >
-                        <h4 className="text-xl font-semibold mb-2 text-gray-800 cursor-pointer">
-                          {course.title}
-                        </h4>
+                      <h4 className="text-xl font-semibold mb-2 text-gray-800 cursor-pointer">
+                        {course.title}
+                      </h4>
                     </Link>
 
                     <p className="leading-0">{course.learningOutcomes}</p>

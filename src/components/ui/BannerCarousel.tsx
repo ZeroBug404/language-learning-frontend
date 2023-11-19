@@ -3,7 +3,7 @@
 import { Carousel } from "antd";
 import Image from "next/image";
 import React from "react";
-import banner1 from "../../app/assets/banner1.jpg";
+import banner1 from "../../assets/banner1.jpg";
 // import banner2 from "../../app/assets/banner2.jpg";
 // import banner3 from "../../app/assets/banner3.jpg";
 

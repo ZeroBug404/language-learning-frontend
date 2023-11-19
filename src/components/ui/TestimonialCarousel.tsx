@@ -10,10 +10,10 @@ import "./styles.css";
 
 // import required modules
 import Image from "next/image";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import { Rate } from "antd";
-import profile from "../../app/assets/profile.jpg";
+import profile from "../../assets/profile.jpg";
 
 const TestimonialCarousel = () => {
   return (
