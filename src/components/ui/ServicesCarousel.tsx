@@ -81,9 +81,10 @@ const ServicesCarousel = () => {
                 <div className="bg-gray-100">
                   <div className="p-6 mt-8">
                     <Link
-                      href="/courseDetail/[id]"
-                      as={`/courseDetail/${course.id}`}
-                      passHref
+                      href={{
+                        pathname: "/courseDetail",
+                        query: { id: course.id },
+                      }}
                     >
                       <a>
                         <h4 className="text-xl font-semibold mb-2 text-gray-800 cursor-pointer">
