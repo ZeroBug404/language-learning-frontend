@@ -1,5 +1,6 @@
 "use client";
 
+import ReviewForm from "@/components/ui/ReviewForm";
 import { useGetSingleCourseQuery } from "@/redux/api/courseApi";
 import { Col, Row } from "antd";
 import Image from "next/image";
@@ -117,10 +118,39 @@ const CourseDetailPage = ({ searchParams }: Props) => {
           </div>
         </div>
 
-        <TabbedInterface />
+        <div
+          className=""
+          style={{
+            width: "85%",
+          }}
+        >
+          <TabbedInterface />
+        </div>
+
+        <div>
+          <ReviewForm />
+        </div>
       </Col>
 
-      <Col span={6}>col-12</Col>
+      <Col span={6}>
+        <div className="shadow">
+          <Image
+            src={profile}
+            alt={singleCourse?.title}
+            // width={200}
+            style={{
+              width: "100%",
+              height: "70%",
+            }}
+          />
+          <div className="text-center pb-4">
+            <h3 className="text-[#f24080] text-xl py-2">$240</h3>
+            <button className="bg-[#f24080] text-white px-20 py-4">
+              BUY NOW
+            </button>
+          </div>
+        </div>
+      </Col>
     </Row>
   );
 };
