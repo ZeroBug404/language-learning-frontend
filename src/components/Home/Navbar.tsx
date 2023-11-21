@@ -17,7 +17,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import Button from './Button';
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import {
@@ -31,6 +31,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import logo from "../../assets/logo.png";
 
+
 export default function Navbar() {
   let Links = [
     { name: "HOME", link: "/" },
@@ -40,13 +41,18 @@ export default function Navbar() {
     // { name: "CONTACT", link: "#contact" },
   ];
   let [open, setOpen] = useState(false);
+  const [role, setRole] = useState(null);
+
+  useEffect(() => {
+    // Fetch user role on mount
+    const { role } = getUserInfo() as any;
+    setRole(role);
+  }, []);
 
   const logOut = () => {
     removeUserInfo("accessToken");
     router.push("/login");
   };
-
-  const { role } = getUserInfo() as any;
 
   const items: MenuProps["items"] = [
     {
@@ -112,6 +118,7 @@ export default function Navbar() {
             </li>
           ))}
 
+          {/* Why this commented code giving the error? */}
           {role ? (
             <li className="m-4">
               <Dropdown menu={{ items }}>

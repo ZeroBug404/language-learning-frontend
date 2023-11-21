@@ -18,12 +18,14 @@ import slide_1 from "../../assets/banner1.jpg";
 import { useGetAllCourseQuery } from "@/redux/api/courseApi";
 import { RootState } from "@/redux/store";
 import { ClockCircleOutlined, CommentOutlined } from "@ant-design/icons";
-import { Divider } from "antd";
+import { Divider, Row, Space, Spin } from "antd";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
 const ServicesCarousel = () => {
-  const { data: courseData } = useGetAllCourseQuery([]);
+  const { data: courseData, isLoading } = useGetAllCourseQuery([]);
+
+  // console.log(courseData);
 
   const selectedCategory = useSelector(
     (state: RootState) => state.category.category
@@ -32,6 +34,19 @@ const ServicesCarousel = () => {
   const courseBasedOnCategory = courseData?.data?.filter(
     (item: any) => item.language.title === selectedCategory
   );
+
+  if (isLoading) {
+    return (
+      <Row
+        justify="center"
+        align="middle"
+      >
+        <Space>
+          <Spin tip="Loading" size="large"></Spin>
+        </Space>
+      </Row>
+    );
+  }
 
   return (
     <>
