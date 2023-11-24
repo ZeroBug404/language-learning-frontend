@@ -31,16 +31,17 @@ const ServicesCarousel = () => {
     (state: RootState) => state.category.category
   );
 
+  console.log(selectedCategory);
+
   const courseBasedOnCategory = courseData?.data?.filter(
     (item: any) => item.language.title === selectedCategory
   );
 
+  console.log(courseBasedOnCategory);
+
   if (isLoading) {
     return (
-      <Row
-        justify="center"
-        align="middle"
-      >
+      <Row justify="center" align="middle">
         <Space>
           <Spin tip="Loading" size="large"></Spin>
         </Space>
@@ -101,11 +102,9 @@ const ServicesCarousel = () => {
                         query: { id: course.id },
                       }}
                     >
-                      <a>
-                        <h4 className="text-xl font-semibold mb-2 text-gray-800 cursor-pointer">
-                          {course.title}
-                        </h4>
-                      </a>
+                      <h4 className="text-xl font-semibold mb-2 text-gray-800 cursor-pointer">
+                        {course.title}
+                      </h4>
                     </Link>
 
                     <p className="leading-0">{course.learningOutcomes}</p>

@@ -1,15 +1,9 @@
+"use client"
+
+import { languageData } from "@/constants/global";
 import { setCategory } from "@/redux/features/courseSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import React, { useState } from "react";
-
-const languageData: string[] = [
-  "Chinese",
-  "English",
-  "French",
-  "German",
-  "Japanese",
-  "Spanish",
-];
 
 const Category: React.FC = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);

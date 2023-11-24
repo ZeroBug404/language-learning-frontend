@@ -12,3 +12,12 @@ export const levelOptions = [
     value: "advanced",
   },
 ];
+
+export const languageData: string[] = [
+  "Chinese",
+  "English",
+  "French",
+  "German",
+  "Japanese",
+  "Spanish",
+];
