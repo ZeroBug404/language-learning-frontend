@@ -2,8 +2,6 @@
 
 import { USER_ROLE } from "@/constants/role";
 import { useUserSignupMutation } from "@/redux/api/authApi";
-import { studentSchema } from "@/schemas/student";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Col, Row, message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +14,8 @@ import FormInput from "../Forms/FormInput";
 type FormValues = {
   email: string;
   password: string;
-  name: string;
+  firstName: string
+  lastName: string
   role: string;
   contactNo: string;
   address: string;
@@ -30,21 +29,24 @@ const RegisterPage = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const registerData = {
-        name: data.name,
+        firstName: data.firstName,
+        lastName: data.lastName,
         email: data.email,
         password: data.password,
         role: USER_ROLE.STUDENT,
         contactNo: data.contactNo,
-        address: data.address,
         profileImg: "",
       };
 
       const res = await userSignup(registerData);
 
       //@ts-ignore
-      if (res?.success) {
-        router.push("/home");
-        message.success("User logged in successfully!");
+      if (res?.data?.success) {
+        router.push("/login");
+        message.success("User registered successfully!");
+        message.success("Please login to continue!");
+      } else {
+        message.error("Something went wrong!");
       }
     } catch (err: any) {
       console.error(err.message);
@@ -71,14 +73,21 @@ const RegisterPage = () => {
           Register!
         </h1>
         <div>
-          
-          <Form submitHandler={onSubmit} >
+          <Form submitHandler={onSubmit}>
             <div>
               <FormInput
-                name="name"
+                name="firstName"
                 type="text"
                 size="large"
-                label="User Name"
+                label="First Name"
+              />
+            </div>
+            <div>
+              <FormInput
+                name="lastName"
+                type="text"
+                size="large"
+                label="Last Name"
               />
             </div>
             <div>
@@ -95,14 +104,6 @@ const RegisterPage = () => {
                 type="text"
                 size="large"
                 label="Contact No"
-              />
-            </div>
-            <div>
-              <FormInput
-                name="address"
-                type="text"
-                size="large"
-                label="Address"
               />
             </div>
             <div
