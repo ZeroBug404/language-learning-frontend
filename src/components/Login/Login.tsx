@@ -34,6 +34,8 @@ const LoginPage = () => {
       if (res?.data?.accessToken) {
         router.push("/home");
         message.success("User logged in successfully!");
+      } else {
+        return message.error("Wrong credential!");
       }
 
       //@ts-ignore
@@ -87,8 +89,13 @@ const LoginPage = () => {
             <Button
               type="primary"
               htmlType="submit"
+              size="large"
               style={{
-                backgroundColor: "#1677ff",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#612ba7",
+                fontSize: "1.2rem",
               }}
             >
               Login

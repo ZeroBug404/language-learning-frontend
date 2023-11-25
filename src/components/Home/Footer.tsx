@@ -1,11 +1,57 @@
+"use client";
+
+import { Button } from "antd";
+import { useState } from "react";
 import {
   FaFacebookSquare,
   FaInstagramSquare,
   FaLinkedin,
 } from "react-icons/fa";
 import ItemsContainer from "../Footer/ItemsContainer";
+import SubscriptionConfirmModal from "../ui/SubscriptionConfirmModal";
+
+type OpenModalButtonProps = {
+  showModal: () => void;
+};
 
 const Footer = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const OpenModalButton: React.FC<OpenModalButtonProps> = ({ showModal }) => (
+    <Button type="primary" onClick={showModal} style={{
+      backgroundColor: "#f24080",
+      border: "none",
+      borderRadius: "0.25rem",
+      color: "#fff",
+      height: "2.8rem",
+      width: "8rem",
+      fontWeight: "bold",
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
+      letterSpacing: "0.05rem",
+      textTransform: "uppercase",
+      padding: "0.5rem 1rem",
+      cursor: "pointer",
+      transition: "all 0.2s ease-in-out",
+      outline: "none",
+      boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.2)",
+    }}>
+      Subscribe
+    </Button>
+  );
+
   return (
     <footer className="bg-[#2f115c] text-white">
       <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#2f115c] py-7 w-10/12 m-auto">
@@ -22,13 +68,13 @@ const Footer = () => {
             className="text-gray-800
            sm:w-72 w-full sm:mr-5 mr-1 lg:mb-0 mb-4 py-2.5 rounded px-2 focus:outline-none"
           />
-          <button
-            className="bg-[#f24080] hover:bg-[#f24085] duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto w-full"
-          >
-            Subscribe
-          </button>
+          <OpenModalButton showModal={showModal} />
         </div>
+        <SubscriptionConfirmModal
+          isOpen={isModalOpen}
+          handleOk={handleOk}
+          handleCancel={handleCancel}
+        />
       </div>
       <ItemsContainer />
       <div
