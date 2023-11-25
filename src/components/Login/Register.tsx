@@ -14,8 +14,8 @@ import FormInput from "../Forms/FormInput";
 type FormValues = {
   email: string;
   password: string;
-  firstName: string
-  lastName: string
+  firstName: string;
+  lastName: string;
   role: string;
   contactNo: string;
   address: string;
@@ -118,7 +118,17 @@ const RegisterPage = () => {
                 label="User Password"
               />
             </div>
-            <Button type="primary" htmlType="submit">
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#612ba7",
+                fontSize: "1.2rem",
+              }}
+            >
               Register
             </Button>
           </Form>
