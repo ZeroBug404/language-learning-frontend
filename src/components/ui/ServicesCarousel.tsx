@@ -25,19 +25,13 @@ import { useSelector } from "react-redux";
 const ServicesCarousel = () => {
   const { data: courseData, isLoading } = useGetAllCourseQuery([]);
 
-  // console.log(courseData);
-
   const selectedCategory = useSelector(
     (state: RootState) => state.category.category
   );
 
-  console.log(selectedCategory);
-
   const courseBasedOnCategory = courseData?.data?.filter(
     (item: any) => item.language.title === selectedCategory
   );
-
-  console.log(courseBasedOnCategory);
 
   if (isLoading) {
     return (

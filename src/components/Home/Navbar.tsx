@@ -31,7 +31,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import logo from "../../assets/logo.png";
 
-
 export default function Navbar() {
   let Links = [
     { name: "HOME", link: "/" },
@@ -81,6 +80,12 @@ export default function Navbar() {
     router.push("/login");
   };
 
+  const [selectedLink, setSelectedLink] = useState("/");
+
+  const handleLinkClick = (link: string) => {
+    setSelectedLink(link);
+  };
+
   return (
     <div className="w-full fixed top-0 z-30">
       <div
@@ -108,10 +113,16 @@ export default function Navbar() {
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 font-semibold md:my-0 my-7 ">
+            <li key={link.name} className="md:ml-8 font-semibold md:my-0 my-4">
               <Link
                 href={link.link}
-                className="text-white hover:text-gray-400 duration-500"
+                className={`text-white hover:bg-[#f5b417] duration-500 px-5 py-3 ${
+                  selectedLink === link.link ||
+                  (selectedLink === "/" && link.link === "/home")
+                    ? "bg-[#f5b417]"
+                    : ""
+                }`}
+                onClick={() => handleLinkClick(link.link)}
               >
                 {link.name}
               </Link>
