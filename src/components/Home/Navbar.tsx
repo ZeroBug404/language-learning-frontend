@@ -58,8 +58,14 @@ export default function Navbar() {
       key: "0",
       label: (
         <Link href={`/${role}`}>
-          <Button type="text" danger>
-            DashBoard
+          <Button
+            type="text"
+            danger
+            style={{
+              fontSize: "1.2rem",
+            }}
+          >
+            Dashboard
           </Button>
         </Link>
       ),
@@ -67,7 +73,18 @@ export default function Navbar() {
     {
       key: "1",
       label: (
-        <Button onClick={logOut} type="text" danger>
+        <Button
+          onClick={logOut}
+          type="text"
+          // size="large"
+          danger
+          style={{
+            fontSize: "1.2rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           LogOut
         </Button>
       ),
@@ -108,12 +125,12 @@ export default function Navbar() {
         </div>
 
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+          className={`md:flex md:gap-1 md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
             open ? "top-20 " : "top-[-490px]"
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 font-semibold md:my-0 my-4">
+            <li key={link.name} className="font-semibold md:my-0 my-4">
               <Link
                 href={link.link}
                 className={`text-white hover:bg-[#f5b417] duration-500 px-5 py-3 ${
@@ -139,8 +156,24 @@ export default function Navbar() {
               </Dropdown>
             </li>
           ) : (
-            <li className="m-4">
-              <Button onClick={login} type="primary" danger>
+            <li
+              className="m-4"
+              style={{
+                textAlign: "center",
+              }}
+            >
+              <Button
+                onClick={login}
+                type="primary"
+                size="large"
+                danger
+                style={{
+                  fontSize: "1.1rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 Login
               </Button>
             </li>
