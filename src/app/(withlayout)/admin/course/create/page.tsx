@@ -148,7 +148,6 @@ const CreateCourse = () => {
             <Col span={24} style={{ margin: "10px 0" }}>
               <FormTextArea name="description" label="Description" rows={4} />
             </Col>
-
           </Row>
         </div>
         {/* other information  */}
@@ -198,7 +197,6 @@ const CreateCourse = () => {
                 options={instructorOptions}
               />
             </Col>
-
           </Row>
         </div>
 

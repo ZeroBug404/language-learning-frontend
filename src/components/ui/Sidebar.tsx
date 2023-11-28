@@ -29,6 +29,7 @@ const SideBar = () => {
         left: 0,
         top: 0,
         bottom: 0,
+        backgroundColor: "#41246d",
       }}
     >
       <div
@@ -39,6 +40,7 @@ const SideBar = () => {
           fontWeight: "bold",
           marginBottom: ".5rem",
           padding: "10px 0px",
+          backgroundColor: "#41246d",
         }}
       >
         LL
@@ -48,6 +50,9 @@ const SideBar = () => {
         defaultSelectedKeys={["1"]}
         mode="inline"
         items={sidebarItems(role)}
+        style={{
+          backgroundColor: "#41246d",
+        }}
       />
     </Sider>
   );
