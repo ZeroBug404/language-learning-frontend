@@ -27,9 +27,14 @@ const Starting = () => {
           </div>
         </Col>
         <Col sm={12} md={12} lg={12}>
-          <Row gutter={10}>
+          <Row
+            gutter={10}
+            // style={{
+            //   gap: "1rem",
+            // }}
+          >
             <Col sm={24} md={12} lg={12}>
-              <Card hoverable style={{ width: 270, marginBottom: "2rem" }}>
+              <Card hoverable style={{ width: 270, marginBottom: "1rem" }}>
                 <div className="flex justify-center items-center  gap-3">
                   <div className="px-5 py-2 bg-yellow-500 rounded-full text-white text-3xl">
                     <p className="text-white text-3xl">1</p>
@@ -41,7 +46,7 @@ const Starting = () => {
               </Card>
             </Col>
             <Col sm={24} md={12} lg={12}>
-              <Card hoverable style={{ width: 270 }}>
+              <Card hoverable style={{ width: 270, marginBottom: "1rem" }}>
                 <div className="flex justify-center items-center  gap-3">
                   <div className="px-5 py-2 bg-yellow-500 rounded-full text-white text-3xl">
                     <p className="text-white text-3xl">2</p>
@@ -53,7 +58,7 @@ const Starting = () => {
               </Card>
             </Col>
             <Col sm={24} md={12} lg={12}>
-              <Card hoverable style={{ width: 270 }}>
+              <Card hoverable style={{ width: 270, marginBottom: "1rem" }}>
                 <div className="flex justify-center items-center  gap-3">
                   <div className="px-5 py-2 bg-yellow-500 rounded-full text-white text-3xl">
                     <p className="text-white text-3xl">3</p>
@@ -65,7 +70,7 @@ const Starting = () => {
               </Card>
             </Col>
             <Col sm={24} md={12} lg={12}>
-              <Card hoverable style={{ width: 270 }}>
+              <Card hoverable style={{ width: 270, marginBottom: "1rem" }}>
                 <div className="flex justify-center items-center  gap-3">
                   <div className="px-5 py-2 bg-yellow-500 rounded-full text-white text-3xl">
                     <p className="text-white text-3xl">4</p>

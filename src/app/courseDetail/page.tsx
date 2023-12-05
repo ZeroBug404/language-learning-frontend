@@ -149,7 +149,7 @@ const CourseDetailPage = ({ searchParams }: Props) => {
             />
             <div className="text-center pb-4">
               <h3 className="text-[#f24080] text-xl py-2">$240</h3>
-              <button className="bg-[#f24080] text-white px-20 py-4">
+              <button className="bg-[#f24080] hover:bg-[#41246d] transition-all duration-300 text-white px-20 py-4">
                 BUY NOW
               </button>
             </div>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { languageData } from "@/constants/global";
 import { setCategory } from "@/redux/features/courseSlice";
@@ -17,11 +17,11 @@ const Category: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="lg:flex grid grid-cols-2 justify-center place-items-center">
       {languageData.map((language, index) => (
         <div
           key={index}
-          className={`text-gray-400 hover:text-indigo-900 px-8 py-4 hover:bg-white font-semibold cursor-pointer ${
+          className={`text-gray-400 hover:text-indigo-900 px-8 py-4 hover:bg-white font-semibold cursor-pointer w-[10rem] ${
             selectedLanguage === language ? "bg-white text-gray-900" : ""
           }`}
           style={{
@@ -29,7 +29,7 @@ const Category: React.FC = () => {
           }}
           onClick={() => handleLanguageClick(language)}
         >
-          <p>{language}</p>
+          <p className="flex justify-center">{language}</p>
         </div>
       ))}
     </div>

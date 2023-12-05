@@ -24,7 +24,7 @@ const BannerCarousel = () => (
           objectFit="cover" // Scale and crop the image to fit the container
           alt="Banner 1"
         />
-        <div className="absolute top-32 left-48">
+        <div className="absolute md:top-32 md:left-48 lg:top-32 lg:left-48 top-16 left-12">
           <p className="text-lg text-pink-500 mb-2">Language School</p>
           <h1 className="text-6xl text-gray-300 font-bold">
             Great Place for <br /> Education
@@ -33,7 +33,9 @@ const BannerCarousel = () => (
           {/* <Button type="primary" size="large">
             Primary
           </Button> */}
-          <button className="bg-pink-500 px-6 py-4 text-white font-semibold">READ MORE</button>
+          <button className="bg-pink-500 px-6 py-4 text-white font-semibold">
+            READ MORE
+          </button>
         </div>
       </div>
     </div>
