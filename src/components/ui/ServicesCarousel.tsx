@@ -96,7 +96,7 @@ const ServicesCarousel = () => {
                         query: { id: course.id },
                       }}
                     >
-                      <h4 className="text-xl font-semibold mb-2 text-gray-800 cursor-pointer">
+                      <h4 className="text-xl font-semibold mb-2 text-gray-800 hover:text-[#f24080] cursor-pointer">
                         {course.title}
                       </h4>
                     </Link>
