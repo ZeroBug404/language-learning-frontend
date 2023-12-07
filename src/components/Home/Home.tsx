@@ -2,6 +2,7 @@
 
 import BannerCarousel from "../ui/BannerCarousel";
 import Blog from "./Blog";
+import MakeAppointment from "./MakeAppointment";
 import Services from "./Services";
 import Starting from "./Starting";
 import Testimonial from "./Testimonial";
@@ -21,7 +22,9 @@ const Home = () => {
       </div>
       <div className="bg-gray-100">
         <Starting />
+        <MakeAppointment />
       </div>
+      
       <div style={{ backgroundColor: "#41246D" }}>
         <Services />
       </div>

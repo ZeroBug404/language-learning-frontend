@@ -1,6 +1,9 @@
 # Language Learning App
 
-A web application for language learning.
+A web application for learning languages.
+
+## Live Link
+[Language Learning App](https://language-learning-frontend-zerobug404.vercel.app/)
 
 ## Table of Contents
 
@@ -15,8 +18,9 @@ A web application for language learning.
 
 1. Clone the repository.
     ```bash
-    git clone https://github.com/ZeroBug404/language-learning-frontend.git
-    cd language-learning-frontend
+    git clone https://github.com/ZeroBug404/language-learning-frontend.git language-learning
+
+    cd language-learning
     ```
 
 2. Install dependencies.
@@ -45,10 +49,6 @@ A web application for language learning.
 2. Create a new branch.
 3. Make your changes.
 4. Submit a pull request.
-
-## Live Link
-
-[Language Learning App](https://language-learning-frontend-zerobug404.vercel.app/)
 
 ## Backend Repository
 

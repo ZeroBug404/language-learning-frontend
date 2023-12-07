@@ -47,7 +47,7 @@ const ServicesCarousel = () => {
     <>
       <Swiper
         slidesPerView={1}
-        spaceBetween={10}
+        // spaceBetween={}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
@@ -55,23 +55,23 @@ const ServicesCarousel = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        // navigation={true}
         breakpoints={{
           "@0.00": {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 7,
           },
           "@0.75": {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 14,
           },
           "@1.00": {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 21,
           },
           "@1.50": {
             slidesPerView: 4,
-            spaceBetween: 50,
+            spaceBetween: 28,
           },
         }}
         modules={[Autoplay]}

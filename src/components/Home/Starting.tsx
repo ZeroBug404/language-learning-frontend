@@ -4,7 +4,7 @@ const { Meta } = Card;
 
 const Starting = () => {
   return (
-    <div className="pb-28 pt-48 mx-20">
+    <div className="pb-28 pt-48 w-[1250px] m-auto">
       <Row justify="center" align="middle" gutter={20}>
         <Col sm={12} md={12} lg={10}>
           <div className="">
