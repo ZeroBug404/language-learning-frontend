@@ -1,6 +1,7 @@
 import appointmentProfile from "@/assets/appointment.jpg";
 import { Col, Row } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 
 const MakeAppointment = () => {
   return (
@@ -28,9 +29,11 @@ const MakeAppointment = () => {
                 range of learning options allows our students to select the most
                 convenient and effective course!
               </p>
-              <button className="bg-[#f24080] hover:bg-[#41246d] transition-all duration-300 text-white px-10 py-5 my-8">
-                MAKE AN APPOINTMENT
-              </button>
+              <Link href={"/appointment"}>
+                <button className="bg-[#f24080] hover:bg-[#41246d] transition-all duration-300 text-white px-10 py-5 my-8 font-semibold">
+                  MAKE AN APPOINTMENT
+                </button>
+              </Link>
             </div>
           </Col>
         </Row>
