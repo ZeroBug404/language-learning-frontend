@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 // Import Swiper React components
@@ -13,7 +14,7 @@ import "./ServicesCarousel.module.css";
 import { Autoplay } from "swiper/modules";
 
 import Image from "next/image";
-import slide_1 from "../../assets/banner1.jpg";
+import post1 from "/src/assets/courses/post1.jpg";
 
 import { useGetAllCourseQuery } from "@/redux/api/courseApi";
 import { RootState } from "@/redux/store";
@@ -28,6 +29,8 @@ const ServicesCarousel = () => {
   const selectedCategory = useSelector(
     (state: RootState) => state.category.category
   );
+
+  console.log(courseData)
 
   const courseBasedOnCategory = courseData?.data?.filter(
     (item: any) => item.language.title === selectedCategory
@@ -81,7 +84,8 @@ const ServicesCarousel = () => {
           ? courseBasedOnCategory?.map((course: any) => (
               <SwiperSlide className="" key={course.id}>
                 <div className="relative">
-                  <Image src={slide_1} width={500} alt="slide 1" />
+                  <Image src={post1} width={500} height={250} alt="slide 1" />
+                  {/* <img src={post1} alt=""/> */}
                   <div className="absolute top-3 right-3 bg-pink-600 px-2 py-5 rounded-full">
                     <h2 className="text-white font-bold text-2xl">
                       ${course.price}
@@ -147,7 +151,8 @@ const ServicesCarousel = () => {
           : courseData?.data?.map((course: any) => (
               <SwiperSlide className="" key={course.id}>
                 <div className="relative">
-                  <Image src={slide_1} width={500} alt="slide 1" />
+                  <Image src={post1} width={500} height={200} alt="slide 1" />
+                  {/* <img src={post1} alt=""/> */}
                   <div className="absolute top-3 right-3 bg-pink-600 px-2 py-5 rounded-full">
                     <h2 className="text-white font-bold text-2xl">
                       ${course.price}
