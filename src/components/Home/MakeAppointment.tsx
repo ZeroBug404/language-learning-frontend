@@ -6,7 +6,7 @@ import Link from "next/link";
 const MakeAppointment = () => {
   return (
     <div className="flex justify-end mb-[-5rem]">
-      <div className="bg-white w-[1300px] p-28">
+      <div className="bg-white w-[1300px] p-1 lg:p-28">
         <Row gutter={60}>
           <Col sm={4} md={10} lg={10} xl={10}>
             <Image src={appointmentProfile} width={1000} alt="" />

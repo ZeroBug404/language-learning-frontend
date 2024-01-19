@@ -61,10 +61,10 @@ const AppointmentPage = () => {
         </h1>
       </div>
       <div
-        className="w-[1350px] mx-auto pb-20"
+        className="mx-auto pb-20"
         style={{ minHeight: "90vh", padding: "5rem 1rem" }}
       >
-        <div className="w-[1000px] m-auto">
+        <div className=" m-auto">
           <Alert
             message={`You selected date: ${
               selectedValue ? selectedValue.format("YYYY-MM-DD") : "None"

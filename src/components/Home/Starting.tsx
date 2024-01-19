@@ -4,7 +4,7 @@ const { Meta } = Card;
 
 const Starting = () => {
   return (
-    <div className="pb-28 pt-48 w-[1250px] m-auto">
+    <div className="pb-28 pt-48 w-[100%] m-auto">
       <Row justify="center" align="middle" gutter={20}>
         <Col sm={12} md={12} lg={10}>
           <div className="">
@@ -32,6 +32,7 @@ const Starting = () => {
             // style={{
             //   gap: "1rem",
             // }}
+            justify="center" align="middle"
           >
             <Col sm={24} md={12} lg={12}>
               <Card hoverable style={{ width: 270, marginBottom: "1rem" }}>

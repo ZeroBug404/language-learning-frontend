@@ -5,7 +5,7 @@ const Services = () => {
   return (
     <div
       id="service"
-      className="w-[1350px] mx-auto pb-20"
+      className="w-[100%] mx-auto pb-20"
       style={{ minHeight: "90vh", padding: "5rem 1rem" }}
     >
       <div className="mt-28">
